@@ -7,7 +7,7 @@ License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/1.2/libsigc++-%{version}.tar.bz2
-# Source0-md5: 1f29decfaa3793f6e55ae905727588be
+# Source0-md5:	1f29decfaa3793f6e55ae905727588be
 Patch0:		%{name}-m4.patch
 Patch1:		%{name}-pc-libdir.patch
 URL:		http://libsigc.sourceforge.net/
