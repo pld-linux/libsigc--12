@@ -18,13 +18,13 @@ BuildRequires:	libtool
 BuildRequires:	m4
 Obsoletes:	libsigc++-examples
 Obsoletes:	libsigc++ < 1.9
-Conflicts:	%{name} < 1.1.0
+Conflicts:	libsigc++ < 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This library implements a full callback system for use in widget
 libraries, abstract interfaces, and general programming. Originally
-part of the Gtk-- widget set, %{name} is now a seperate library to
+part of the Gtk-- widget set, libsigc++ is now a seperate library to
 provide for more general use. It is the most complete library of its
 kind with the ablity to connect an abstract callback to a class
 method, function, or function object. It contains adaptor classes for
@@ -76,7 +76,6 @@ Statyczna biblioteka libsigc++ - ¶rodowiska sygna³ów z kontrol± typów.
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
-rm -f scripts/missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
