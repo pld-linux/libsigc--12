@@ -17,7 +17,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	m4
 Obsoletes:	libsigc++-examples
-Obsoletes:	libsigc++ < 1.9
+Obsoletes:	libsigc++ < 1:1.9
 Conflicts:	libsigc++ < 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,7 +47,7 @@ Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
 Requires:	m4
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:	libsigc++-devel < 1.9
+Obsoletes:	libsigc++-devel < 1:1.9
 
 %description devel
 Development tools for the Typesafe Signal Framework for C++.
@@ -61,7 +61,7 @@ Summary:	Static Typesafe Signal Framework for C++ libraries
 Summary(pl):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Obsoletes:	libsigc++-static < 1.9
+Obsoletes:	libsigc++-static < 1:1.9
 
 %description static
 Static Typesafe Signal Framework for C++ libraries.
