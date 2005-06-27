@@ -2,7 +2,7 @@ Summary:	The Typesafe Signal Framework for C++
 Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++
 Name:		libsigc++12
 Version:	1.2.7
-Release:	1
+Release:	2
 License:	LGPL
 Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
 Group:		Libraries
@@ -44,8 +44,9 @@ callbacków.
 Summary:	Development tools for the Typesafe Signal Framework for C++
 Summary(pl):	Narzêdzia programistyczne do ¶rodowiska libsig++
 Group:		Development/Libraries
-Requires:	m4
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
+Requires:	m4
 Obsoletes:	libsigc++-devel < 1:1.9
 
 %description devel
