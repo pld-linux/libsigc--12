@@ -1,5 +1,5 @@
 Summary:	The Typesafe Signal Framework for C++
-Summary(pl.UTF-8):   Środowisko sygnałów z kontrolą typów dla C++
+Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++12
 Version:	1.2.7
 Release:	2
@@ -42,7 +42,7 @@ callbacków.
 
 %package devel
 Summary:	Development tools for the Typesafe Signal Framework for C++
-Summary(pl.UTF-8):   Narzędzia programistyczne do środowiska libsig++
+Summary(pl.UTF-8):	Narzędzia programistyczne do środowiska libsig++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -58,7 +58,7 @@ kontrolą typów.
 
 %package static
 Summary:	Static Typesafe Signal Framework for C++ libraries
-Summary(pl.UTF-8):   Statyczna biblioteka libsigc++
+Summary(pl.UTF-8):	Statyczna biblioteka libsigc++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	libsigc++-static < 1:1.9
