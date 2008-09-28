@@ -96,17 +96,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libsigc-1.2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsigc-1.2.so.5
 
 %files devel
 %defattr(644,root,root,755)
 %doc AUTHORS README IDEAS FEATURES NEWS ChangeLog TODO doc/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/sigc++-*
-%{_libdir}/sigc++-*
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_libdir}/libsigc-1.2.so
+%{_libdir}/libsigc-1.2.la
+%{_includedir}/sigc++-1.2
+%{_libdir}/sigc++-1.2
+%{_pkgconfigdir}/sigc++-1.2.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libsigc-1.2.a
