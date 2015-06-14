@@ -1,0 +1,21 @@
+--- libsigc++-1.2.7/Makefile.am~	2005-01-31 13:32:02.000000000 +0100
++++ libsigc++-1.2.7/Makefile.am	2015-06-14 20:23:41.309283741 +0200
+@@ -1,6 +1,6 @@
+ SUBDIRS = sigc++ tests doc MSVC_6 MSVC_Net2003 eVC4
+ DIST_SUBDIRS = $(SUBDIRS) examples scripts
+-ACLOCAL_AMFLAGS = -I $(srcdir)/scripts
++ACLOCAL_AMFLAGS = -I scripts
+ 
+ EXTRA_DIST = \
+ 	FEATURES IDEAS			\
+--- libsigc++-1.2.7/sigc++/Makefile.am~	2002-11-06 13:34:35.000000000 +0100
++++ libsigc++-1.2.7/sigc++/Makefile.am	2015-06-14 20:27:02.697102340 +0200
+@@ -12,7 +12,7 @@
+ sigc_built_h	= bind_return.h	\
+ 		  object_slot.h retype_return.h slot.h bind.h		\
+ 		  class_slot.h hide.h retype.h signal.h       \
+-                  method_slot.h method_slot.h
++                  method_slot.h
+ 
+ built_sources	= $(sigc_built_cc) $(sigc_built_h)
+ dist_sources	= $(sigc_fixed_cc) $(sigc_fixed_h)
