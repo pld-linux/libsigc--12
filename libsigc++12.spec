@@ -1,21 +1,30 @@
+#
+# Conditional build:
+%bcond_without	apidocs	# API documentation
+
 Summary:	The Typesafe Signal Framework for C++
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++
 Name:		libsigc++12
 Version:	1.2.7
-Release:	3
-License:	LGPL
-Vendor:		Karl E. Nelson <kenelson@ece.ucdavis.edu>
+Release:	4
+License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/1.2/libsigc++-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/libsigc++/1.2/libsigc++-%{version}.tar.bz2
 # Source0-md5:	212f48536019e1f003d2509b4c9b36df
 Patch0:		%{name}-m4.patch
 Patch1:		am-lt.patch
-URL:		http://libsigc.sourceforge.net/
+URL:		https://libsigcplusplus.github.io/libsigcplusplus/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	m4
+BuildRequires:	rpmbuild(macros) >= 1.752
+%if %{with apidocs}
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:	docbook-style-xsl-nons
+BuildRequires:	libxslt-progs
+%endif
 Obsoletes:	libsigc++-examples
 Obsoletes:	libsigc++ < 1:1.9
 Conflicts:	libsigc++ < 1.1.0
@@ -70,6 +79,18 @@ Static Typesafe Signal Framework for C++ libraries.
 %description static -l pl.UTF-8
 Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
 
+%package apidocs
+Summary:	API documentation for libsigc++ 1.2.x
+Summary(pl.UTF-8):	Dokumentacja API do libsigc++ 1.2.x
+Group:		Documentation
+%{?noarchpackage}
+
+%description apidocs
+API documentation for libsigc++ 1.2.x.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API do libsigc++ 1.2.x.
+
 %prep
 %setup -q -n libsigc++-%{version}
 %patch0 -p1
@@ -78,17 +99,24 @@ Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
 %configure
 %{__make}
+
+%if %{with apidocs}
+%{__make} -C doc/manual
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libsigc-1.2.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,14 +126,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog FEATURES IDEAS NEWS README TODO
 %attr(755,root,root) %{_libdir}/libsigc-1.2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsigc-1.2.so.5
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS README IDEAS FEATURES NEWS ChangeLog TODO doc/*
 %attr(755,root,root) %{_libdir}/libsigc-1.2.so
-%{_libdir}/libsigc-1.2.la
 %{_includedir}/sigc++-1.2
 %{_libdir}/sigc++-1.2
 %{_pkgconfigdir}/sigc++-1.2.pc
@@ -113,3 +140,9 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libsigc-1.2.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/{API,FAQ,UML,conventions,diagrams,marshal,powerusers,requirements,signals} doc/manual/html
+%endif
