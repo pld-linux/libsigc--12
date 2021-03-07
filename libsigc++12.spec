@@ -83,7 +83,7 @@ Statyczna biblioteka libsigc++ - środowiska sygnałów z kontrolą typów.
 Summary:	API documentation for libsigc++ 1.2.x
 Summary(pl.UTF-8):	Dokumentacja API do libsigc++ 1.2.x
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API documentation for libsigc++ 1.2.x.
