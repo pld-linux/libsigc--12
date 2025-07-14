@@ -93,8 +93,8 @@ Dokumentacja API do libsigc++ 1.2.x.
 
 %prep
 %setup -q -n libsigc++-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions"
